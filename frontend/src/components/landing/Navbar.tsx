@@ -29,7 +29,7 @@ export default function Navbar({ lang, setLang, content }: NavbarProps) {
           {/* Brand */}
           <div className="flex items-center gap-1.5">
             <Image
-              src="/images/logo.svg"
+              src="/thenew/images/logo.svg"
               alt="GuiderPlan logo"
               width={24}
               height={24}
