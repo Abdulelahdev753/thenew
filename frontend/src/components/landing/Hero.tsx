@@ -38,7 +38,7 @@ export default function Hero({ lang, content }: HeroProps) {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       {/* Background image */}
       <Image
-        src="/thenew/images/background.png"
+        src="/images/background.png"
         alt=""
         fill
         className="object-cover"
