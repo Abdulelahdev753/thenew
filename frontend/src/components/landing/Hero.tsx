@@ -12,6 +12,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { BrowseGuidesButton } from "@/components/ui/browse-guides-button";
 
 export interface HeroContent {
   announcement: string;
@@ -84,12 +85,9 @@ export default function Hero({ lang, content }: HeroProps) {
 
         {/* CTA buttons */}
         <div className="flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <a
-            href="#products"
-            className="inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-semibold text-black shadow-[0_0_20px_rgba(255,255,255,0.15)] transition-all duration-200 hover:opacity-90 active:scale-95"
-          >
+          <BrowseGuidesButton>
             {content.primaryCta}
-          </a>
+          </BrowseGuidesButton>
 
           <AlertDialog>
             <AlertDialogTrigger asChild>

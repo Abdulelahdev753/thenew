@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import {
   Card,
   CardHeader,
@@ -8,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
 
 export interface ProductContent {
   sectionTitle: string;
@@ -30,7 +34,36 @@ interface ProductsSectionProps {
   content: ProductContent;
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+
 export default function ProductsSection({ content }: ProductsSectionProps) {
+  const [loadingCity, setLoadingCity] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleGetGuide(cityName: string) {
+    setError(null);
+    setLoadingCity(cityName);
+
+    try {
+      const res = await fetch(`${API_URL}/api/create-payment-link`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cityName }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error ?? "Payment request failed");
+      }
+
+      const { paymentUrl } = await res.json();
+      window.location.href = paymentUrl;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
+      setLoadingCity(null);
+    }
+  }
+
   return (
     <section id="products" className="mx-auto w-full max-w-6xl scroll-mt-24 px-4 py-20 sm:px-6 lg:px-8">
       {/* Section header */}
@@ -42,6 +75,13 @@ export default function ProductsSection({ content }: ProductsSectionProps) {
           {content.sectionSubtitle}
         </p>
       </div>
+
+      {/* Error banner */}
+      {error && (
+        <div className="mb-6 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-center text-sm text-red-400">
+          {error}
+        </div>
+      )}
 
       {/* Products grid */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -92,8 +132,19 @@ export default function ProductsSection({ content }: ProductsSectionProps) {
             </CardContent>
 
             <CardFooter className="mt-auto pb-6">
-              <Button className="w-full bg-orange-500 text-white hover:bg-orange-600">
-                {content.ctaLabel}
+              <Button
+                className="w-full bg-orange-500 text-white hover:bg-orange-600"
+                disabled={loadingCity !== null}
+                onClick={() => handleGetGuide(product.city)}
+              >
+                {loadingCity === product.city ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Processing...
+                  </>
+                ) : (
+                  content.ctaLabel
+                )}
               </Button>
             </CardFooter>
           </Card>
