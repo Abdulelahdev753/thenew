@@ -29,6 +29,7 @@ RUN npm run build
 
 # ---- Final image ----
 FROM base AS runner
+RUN apk add --no-cache nginx
 WORKDIR /app
 ENV NODE_ENV=production
 
@@ -42,7 +43,10 @@ COPY --from=backend-builder /app/backend/dist ./backend/dist
 COPY --from=backend-deps /app/backend/node_modules ./backend/node_modules
 COPY --from=backend-builder /app/backend/package.json ./backend/
 
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY start.sh ./
 RUN chmod +x start.sh
+
+EXPOSE 80
 
 CMD ["./start.sh"]
