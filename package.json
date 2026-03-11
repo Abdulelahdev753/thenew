@@ -10,7 +10,7 @@
     "build:frontend": "npm --prefix frontend run build",
     "build:backend": "npm --prefix backend run build",
     "build": "npm run build:frontend && npm run build:backend",
-    "start": "node frontend/.next/standalone/frontend/server.js"
+    "start": "HOSTNAME=0.0.0.0 PORT=3000 node frontend/.next/standalone/frontend/server.js"
   },
   "devDependencies": {
     "concurrently": "^9.2.1",
