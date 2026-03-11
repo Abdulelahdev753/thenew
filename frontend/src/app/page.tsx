@@ -77,12 +77,12 @@ const content: Record<Lang, Content> = {
           badgeVariant: "default",
         },
         {
-          city: "Edinburgh",
+          city: "Budapest",
           description:
-            "Discover Scotland's capital — from Arthur's Seat to the Royal Mile.",
+            "Thermal baths, ruin bars, and stunning Danube views — your complete Budapest guide.",
           price: "$12.99",
-          emoji: "\uD83C\uDFF4\uDB40\uDC67\uDB40\uDC62\uDB40\uDC73\uDB40\uDC63\uDB40\uDC74\uDB40\uDC7F",
-          gradient: "bg-gradient-to-br from-blue-900/60 to-indigo-900/40",
+          emoji: "🇭🇺",
+          gradient: "bg-gradient-to-br from-red-900/60 to-green-900/40",
         },
         {
           city: "Barcelona",

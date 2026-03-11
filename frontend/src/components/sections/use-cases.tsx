@@ -82,7 +82,7 @@ const content: Record<Lang, UseCasesContent> = {
       {
         name: "Khalid",
         text: "Best travel investment I've made. Every spot was perfect.",
-        city: "Edinburgh Guide",
+        city: "Budapest Guide",
       },
       {
         name: "Noura",
