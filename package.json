@@ -7,7 +7,7 @@
     "dev:frontend": "npm --prefix frontend run dev",
     "dev:backend": "npm --prefix backend run dev",
     "postinstall": "npm --prefix frontend install && npm --prefix backend install",
-    "build:frontend": "npm --prefix frontend run build",
+    "build:frontend": "rm -rf frontend/.next && npm --prefix frontend run build",
     "build:backend": "npm --prefix backend run build",
     "build": "npm run build:frontend && npm run build:backend",
     "start": "HOSTNAME=0.0.0.0 PORT=3000 node frontend/.next/standalone/frontend/server.js"
