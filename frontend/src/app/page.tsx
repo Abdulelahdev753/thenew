@@ -169,12 +169,12 @@ const content: Record<Lang, Content> = {
           badgeVariant: "default",
         },
         {
-          city: "إدنبرة",
+          city: "بودابست",
           description:
-            "اكتشف عاصمة اسكتلندا — من مقعد آرثر إلى الميل الملكي.",
+            "الحمامات الحرارية، حانات الأنقاض، وإطلالات الدانوب الخلابة — دليلك الشامل لبودابست.",
           price: "$12.99",
-          emoji: "\uD83C\uDFF4\uDB40\uDC67\uDB40\uDC62\uDB40\uDC73\uDB40\uDC63\uDB40\uDC74\uDB40\uDC7F",
-          gradient: "bg-gradient-to-br from-blue-900/60 to-indigo-900/40",
+          emoji: "🇭🇺",
+          gradient: "bg-gradient-to-br from-red-900/60 to-green-900/40",
         },
         {
           city: "برشلونة",

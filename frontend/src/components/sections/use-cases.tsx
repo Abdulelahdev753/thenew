@@ -157,7 +157,7 @@ const content: Record<Lang, UseCasesContent> = {
       {
         name: "خالد",
         text: "أفضل استثمار سفر سويته. كل مكان كان مثالي.",
-        city: "دليل إدنبرة",
+        city: "دليل بودابست",
       },
       {
         name: "نورة",
