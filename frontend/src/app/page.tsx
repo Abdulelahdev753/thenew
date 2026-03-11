@@ -80,7 +80,7 @@ const content: Record<Lang, Content> = {
           city: "Budapest",
           description:
             "Thermal baths, ruin bars, and stunning Danube views — your complete Budapest guide.",
-          price: "$12.99",
+          price: "$9.99",
           emoji: "🇭🇺",
           gradient: "bg-gradient-to-br from-red-900/60 to-green-900/40",
         },
@@ -172,7 +172,7 @@ const content: Record<Lang, Content> = {
           city: "بودابست",
           description:
             "الحمامات الحرارية، حانات الأنقاض، وإطلالات الدانوب الخلابة — دليلك الشامل لبودابست.",
-          price: "$12.99",
+          price: "$9.99",
           emoji: "🇭🇺",
           gradient: "bg-gradient-to-br from-red-900/60 to-green-900/40",
         },
